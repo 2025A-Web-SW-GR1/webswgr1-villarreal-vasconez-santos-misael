@@ -1,17 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /*Selector por id*/
+        #titulo {
+            font-style: italic;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        /*Selector por nombre de etiqueta*/
+        h1,h2,h3{
+            text-align: center;
+            padding: 10px, 20px, 30px, 40px;
+            margin: 50px;
+            border: black;
+            border-color: blue;
+            border-width: 1px;
+            border-style: dotted;
+        }
+    </style>
 </head>
+
+
 <body>
-    <h1>Hola First Heading</h1>
-    <h2>Hola First Heading</h2>
-    <h3>Hola First Heading</h3>
-    <h4>Hola First Heading</h4>
-    <h5>Hola First Heading</h5>
-    <h6 style="font-size: 77px;">Hola First Heading</h6>
-    <p>Hola First Heading</p>
+
+    <h1 id="titulo" style="color: purple;background-color: aqua; text-align: center;">First Heading</h1>
+
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+    <br>
+    <br>
+
+    <h1>Home</h1>
+    <ul>
+        <li>
+            <a href="/index.html">Home</a>
+        </li>
+        <li>
+            <a href="a-tablas-anclas.html">Tablas y Anclas</a>
+        </li>
+    </ul>
+    <p>Submenu</p>
+    <ul>
+        <li><a href="#parrafo1">Ir a parrafo 1</a></li>
+        <li><a href="#parrafo2">Ir a parrafo 2</a></li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ol>
+
+    <p>Links Internos</p>
+
+    <p id="parrafo1">Parrafo 1</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="parrafo2">Parrafo 2</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <img src="https://economia.epn.edu.ec/images/LOGO-01.png" width="100px" alt="epn">
+
+
+    <p>Tablas</p>
+    <table>
+        <tr><!--Table row-->
+            <th><!--Table header-->
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Nota
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Camila
+            </td>
+            <td>
+                Sanchez
+            </td>
+            <td>
+                10
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Santos
+            </td>
+            <td>
+                Villarreal
+            </td>
+            <td>
+                9
+            </td>
+        </tr>
+    </table>
+
+
+
+
 </body>
+
 </html>
