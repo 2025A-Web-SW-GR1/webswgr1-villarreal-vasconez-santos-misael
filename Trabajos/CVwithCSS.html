@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae - CSS</title>
+  <style>
+    
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #001f3e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #e0e0e0;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #001f3e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 777px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #001f3e;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #001f3e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #001f3e;
+      color: white;
+      margin-top: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Santos Misael Villarreal Vasconez</h1>
+    <p>Ingeniero en Software | Desarrollador Web</p>
+  </header>
+
+  <nav>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#educacion">Educación</a>
+    <a href="#habilidades">Habilidades</a>
+  </nav>
+
+  <div class="container">
+    <section class="contact-info">
+      <div>
+        <p><strong>Correo:</strong> santosmisavillarreal@gmail.com</p>
+        <p><strong>Teléfono:</strong> +593 987 600 767</p>
+      </div>
+      <div>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/santos-villarreal-aa81a922a/" target="_blank">Profile</a></p>
+        <p><strong>Ubicación:</strong> Abdón Calderón G. y Hermano Miguel, Quito</p>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <h2>Experiencia Laboral</h2>
+      <p><strong><a href="https://www.geoportaligm.gob.ec/geoeduca/web/" target="_blank">Instituto Geográfico Militar</a></strong> - Developer Junior<br><em>Abril 2024 - Septiembre 2024</em></p>
+      <ul>
+        <li>Evaluación y corrección de software en aplicativos interactivos.</li>
+        <li>Desarrollo de 3 juegos educativos con temática nacional para niños en la plataforma Geoeduca.</li>
+      </ul>
+    </section>
+
+    <section id="educacion" class="section">
+      <h2>Educación</h2>
+      <p><strong><a href="https://fis.epn.edu.ec/index.php/es/oferta-academicafis/software" target="_blank">Escuela Politécnica Nacional</a></strong> - Ingeniero en Software<br><em>Octubre 2022 - Presente</em></p>
+      <table>
+        <tr>
+          <th>Especialización</th>
+          <th>Promedio</th>
+        </tr>
+        <tr>
+          <td>Desarrollo web y móvil, Diseño UI/UX</td>
+          <td>8.7 / 10</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="habilidades" class="section">
+      <h2>Habilidades e Intereses</h2>
+      <ul>
+        <li><strong>Intereses:</strong> TED Talks, Udemy, Psicología Humana, Senderismo, Lectura, Basketball</li>
+        <li><strong>Idiomas:</strong> Español (nativo), Inglés (fluido)</li>
+        <li><strong>Habilidades Técnicas:</strong> Java, SQL</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Santos Misael Villarreal Vasconez - Todos los derechos reservados.
+  </footer>
+</body>
+</html>
