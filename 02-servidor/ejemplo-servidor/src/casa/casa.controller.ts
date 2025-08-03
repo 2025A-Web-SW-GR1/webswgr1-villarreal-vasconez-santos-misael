@@ -1,6 +1,9 @@
-import { 
-  Controller, Get } from '@nestjs/common';
+import {
+    Controller, Get,
+    Query
+} from '@nestjs/common';
 import { CasaService } from './casa.service';
+import { Like } from 'typeorm';
 
 @Controller('api/casa')
 export class CasaController {
@@ -10,8 +13,13 @@ export class CasaController {
 
     }
     @Get()
-    obtener(){
-        return this.casaService.obtenerTodos();
+    obtener(@Query('nombre') nombre: string,
+    ) {
+        return this.casaService.obtenerTodos({
+            where: {
+                nombre: Like("%" + nombre + "%"),
+            }
+        });
     }
 
 }

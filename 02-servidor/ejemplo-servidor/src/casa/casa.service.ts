@@ -1,17 +1,19 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Options } from '@nestjs/common';
 import { Casa } from './casa.entity';
-import { Repository } from 'typeorm';
+import { FindManyOptions, Repository } from 'typeorm';
 
 @Injectable()
 export class CasaService {
     constructor(
         @Inject('CASA_REPOSITORY')
         private photoRepository: Repository<Casa>,
-    ){
+    ) {
 
     }
-    obtenerTodos(){
+    obtenerTodos(
+        Options?: FindManyOptions | undefined
+    ) {
+
         return this.photoRepository.find();
     }
 }
- 
