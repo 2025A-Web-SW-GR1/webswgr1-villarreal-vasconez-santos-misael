@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Casas - Sistema de Casas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #001f3e 0%, #003d7a 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px 0;
+        }
+        
+        .main-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem 2rem;
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .main-header h1 {
+            background: linear-gradient(135deg, #001f3e 0%, #003d7a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 118, 117, 0.4);
+            color: white;
+        }
+        
+        .table-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        .table {
+            margin: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .table thead th {
+            background: linear-gradient(135deg, #001f3e 0%, #003d7a 100%);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            border: none;
+            padding: 1.2rem 1rem;
+        }
+        
+        .table tbody tr {
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(0, 31, 62, 0.1) 0%, rgba(0, 61, 122, 0.1) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table tbody td {
+            padding: 1.2rem 1rem;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            vertical-align: middle;
+            font-weight: 500;
+        }
+        
+        .table tbody tr:nth-child(even) {
+            background: rgba(0, 31, 62, 0.02);
+        }
+        
+        .house-image {
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 120px;
+            height: 80px;
+            object-fit: cover;
+        }
+        
+        .house-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .house-name {
+            font-weight: 600;
+            color: #2d3436;
+        }
+        
+        .house-price {
+            font-weight: 700;
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+        }
+        
+        .owner-name {
+            color: #636e72;
+            background: rgba(0, 31, 62, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .house-id {
+            background: linear-gradient(135deg, #001f3e 0%, #003d7a 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            display: inline-block;
+            min-width: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 1rem;
+                margin: 1rem;
+                border-radius: 15px;
+            }
+            
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .table-container {
+                margin: 1rem;
+                padding: 1rem;
+                border-radius: 15px;
+            }
+            
+            .table {
+                font-size: 0.85rem;
+            }
+            
+            .house-image {
+                max-width: 80px;
+                height: 60px;
+            }
+        }
+        
+        .container-fluid {
+            max-width: 1400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-header">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <h1><i class="fas fa-home me-3"></i>Lista de Casas</h1>
+                <a href="/auth/logout" class="logout-btn">
+                    <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                </a>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-hashtag me-2"></i>ID</th>
+                        <th><i class="fas fa-image me-2"></i>Imagen</th>
+                        <th><i class="fas fa-home me-2"></i>Nombre</th>
+                        <th><i class="fas fa-dollar-sign me-2"></i>Valor</th>
+                        <th><i class="fas fa-user me-2"></i>Propietario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% casas.forEach(function(casa) { %>
+                        <tr class="align-middle">
+                            <td>
+                                <span class="house-id"><%= casa.id %></span>
+                            </td>
+                            <td>
+                                <img src="<%= casa.imagenURL %>" alt="<%= casa.nombre %>" class="house-image">
+                            </td>
+                            <td>
+                                <span class="house-name"><%= casa.nombre %></span>
+                            </td>
+                            <td>
+                                <span class="house-price">$ <%= casa.valor %></span>
+                            </td>
+                            <td>
+                                <span class="owner-name"><%= casa.username %></span>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+</html>
